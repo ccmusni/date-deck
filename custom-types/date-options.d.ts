@@ -1,13 +1,11 @@
-declare module 'date-options' {
-  interface IItemOption {
+declare module 'date-types' {
+  interface IDateType {
     id: string;
     label: string;
-  }
-
-  interface IDateOptionFlip {
-    id: string;
-    label: string;
-    options?: IItemOption[];
+    question?: string;
+    options?: IDateType[];
     isFlipped?: boolean;
+    disabled?: boolean;
+    answerId?: string | null;
   }
 }

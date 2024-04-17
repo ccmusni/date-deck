@@ -1,10 +1,10 @@
 import './App.css';
-import DateOptions from './DateOptions';
+import DateCardFlipper from './DateCardFlipper';
 
 function App() {
   return (
     <div className="App">
-      <DateOptions />
+      <DateCardFlipper />
     </div>
   );
 }
