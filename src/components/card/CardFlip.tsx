@@ -1,5 +1,8 @@
+// @ts-nocheck
+
 import { FunctionComponent, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Card, CardBody } from '@material-tailwind/react';
 
 interface CardFLipProps {
   id: string;
@@ -29,7 +32,9 @@ const CardFLip: FunctionComponent<CardFLipProps> = ({
   };
 
   return (
-    <div
+    <Card
+      shadow={false}
+      placeholder={''}
       className={`flip-card h-[540px] w-full max-w-[350px] rounded-md m-10 ${disabled && !isFlipped ? 'opacity-50' : 'cursor-pointer'}`}
       {...(!disabled ? { onClick: () => handleFlip(id, isFlipped) } : {})}
     >
@@ -42,12 +47,25 @@ const CardFLip: FunctionComponent<CardFLipProps> = ({
           setIsAnimating(false);
         }}
       >
-        <div className="flip-card-back w-[100%] h-[100%] bg-card-back bg-cover rounded-lg" />
-        <div className="flip-card-front w-[100%] h-[100%] rounded-lg p-4 border-[3px] border-gray-400">
-          {isFlipped && <h1 className="text-2xl font-bold/">{label}</h1>}
-        </div>
+        <CardBody
+          className="absolute inset-0 m-0 rounded-none w-[100%] h-[100%] rounded-lg flip-card-back bg-card-back bg-cover"
+          children={<></>}
+        />
+        <CardBody
+          className={`absolute inset-0 m-0 rounded-none w-[100%] h-[100%] rounded-lg flip-card-front bg-${id ?? 'card-back'} bg-cover bg-center bg-opacity-25 p-4 border-[3px] border-red-400 flex justify-center items-center`}
+        >
+          {true && (
+            <div className="bg-clip-content bg-white p-3 border-4 border-pink-300 border-dashed bg-opacity-75 drop-shadow-xl">
+              <div className="text-5xl font-extrabold ...">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500 drop-shadow-xl">
+                  {label}
+                </span>
+              </div>
+            </div>
+          )}
+        </CardBody>
       </motion.div>
-    </div>
+    </Card>
   );
 };
 

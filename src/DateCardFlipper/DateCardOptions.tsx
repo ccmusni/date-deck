@@ -16,23 +16,24 @@ const DateCardOptions: FunctionComponent<DateOptionsProps> = ({
     isFlipped: false,
     disabled: false,
   }));
-  const [dateTypeFlip, setdateTypeFlip] = useState<IDateType[]>(
+  const [dateTypeFlip, setDateTypeFlip] = useState<IDateType[]>(
     dateTypeList ?? [],
   );
 
   const handleFlip = (optionId: string, isFlipped: boolean) => {
-    setdateTypeFlip((prev) =>
-      prev.map((item) =>
+    setDateTypeFlip((prev) => {
+      return prev.map((item) =>
         item.id === optionId
           ? { ...item, isFlipped, disabled: true }
           : { ...item, disabled: true },
-      ),
-    );
+      );
+    });
     onFlip(dateType?.id, optionId);
   };
 
   useEffect(() => {
-    setdateTypeFlip(dateTypeList ?? []);
+    setDateTypeFlip(dateTypeList ?? []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dateType]);
 
   return (
@@ -41,6 +42,7 @@ const DateCardOptions: FunctionComponent<DateOptionsProps> = ({
       <div className="flex w-full items-center justify-center">
         {dateTypeFlip?.map(({ id, label, isFlipped, disabled }) => (
           <CardFLip
+            key={id}
             id={id}
             label={label}
             isFlipped={isFlipped}

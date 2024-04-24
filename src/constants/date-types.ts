@@ -7,7 +7,7 @@ const dateTypes: IDateType[] = [
     label: '',
     options: [
       {
-        id: 'pamper',
+        id: 'pamper-date',
         question:
           'Choose a card and click to discover! The selected card will reveal the Pampering Date in store for us...',
         label: 'PAMPER DATE',
@@ -43,8 +43,8 @@ const dateTypes: IDateType[] = [
                 label: 'T&J Salon Professionals',
               },
               {
-                id: 'your-salon-selection',
-                label: 'Your Selection',
+                id: 'new-lounge',
+                label: 'New Lounge',
               },
               {
                 id: 'nora',
@@ -56,12 +56,18 @@ const dateTypes: IDateType[] = [
             id: 'spa-salon',
             question:
               "Select a card and click it. Your chosen card will reveal the Spa & Salon we'll be visiting!",
-            label: 'Spa & Salon',
+            label: 'Spa & Salon - Your Selection',
+            options: [
+              {
+                id: 'your-spa-salon-selection',
+                label: 'Your Selection',
+              },
+            ],
           },
         ],
       },
       {
-        id: 'shop',
+        id: 'shopping-date',
         question:
           'Choose a card and click to discover! The selected card will reveal the shopping date in store for us...',
         label: 'SHOPPING DATE',
@@ -71,8 +77,8 @@ const dateTypes: IDateType[] = [
             label: 'Greenbelt',
           },
           {
-            id: 'alabang',
-            label: 'Alabang Town Center',
+            id: 'market-market',
+            label: 'Market! Market!',
           },
           {
             id: 'your-mall-selection',
@@ -89,7 +95,7 @@ const dateTypes: IDateType[] = [
         ],
       },
       {
-        id: 'staycation',
+        id: 'staycation-date',
         question:
           'Choose a card and click to discover! The selected card will reveal the staycation date in store for us...',
         label: 'STAYCATION DATE',

@@ -9,9 +9,9 @@ const DateCardFlipper = () => {
   const handleOnFlip = (id: string, answerId: string) => {
     setTimeout(
       () =>
-        setDateTypeList((prev) =>
-          prev.map((dt) => (dt.id === id ? { ...dt, answerId } : dt)),
-        ),
+        setDateTypeList((prev) => {
+          return prev.map((dt) => (dt.id === id ? { ...dt, answerId } : dt));
+        }),
       2000,
     );
   };
@@ -29,7 +29,14 @@ const DateCardFlipper = () => {
         rendered = true;
         return renderDateTypeOptions(iDataTypeList);
       } else if (iDataTypeList.options && iDataTypeList.options?.length > 0) {
-        setDateTypeList(iDataTypeList.options);
+        const newOptions = iDataTypeList.options.find(
+          (item) => item.id === iDataTypeList.answerId,
+        );
+
+        if (newOptions) {
+          setDateTypeList([newOptions]);
+        }
+
         break;
       }
     }
