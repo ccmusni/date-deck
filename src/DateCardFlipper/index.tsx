@@ -2,18 +2,19 @@ import { ReactNode, useState } from 'react';
 import dateTypes from '../constants/date-types';
 import DateCardOptions from './DateCardOptions';
 import { IDateType } from 'date-types';
+import DateCardAnswers from './DateCardAnswers';
 
 const DateCardFlipper = () => {
   const [dateTypeList, setDateTypeList] = useState(dateTypes);
+  const [answerIds, setAnswerIds] = useState<string[]>([]);
 
   const handleOnFlip = (id: string, answerId: string) => {
-    setTimeout(
-      () =>
-        setDateTypeList((prev) => {
-          return prev.map((dt) => (dt.id === id ? { ...dt, answerId } : dt));
-        }),
-      2000,
-    );
+    setTimeout(() => {
+      setDateTypeList((prev) => {
+        return prev.map((dt) => (dt.id === id ? { ...dt, answerId } : dt));
+      });
+      setAnswerIds((prev) => [...prev, answerId]);
+    }, 2000);
   };
 
   const renderDateTypeOptions = (dt: IDateType | undefined) =>
@@ -41,7 +42,17 @@ const DateCardFlipper = () => {
       }
     }
   };
-  return <>{renderDateTypeList(dateTypeList)}</>;
+  return (
+    <>
+      {answerIds?.length === 3 ? (
+        <div style={{ height: '100vh', width: '100%' }}>
+          <DateCardAnswers answerIds={answerIds} />
+        </div>
+      ) : (
+        renderDateTypeList(dateTypeList)
+      )}
+    </>
+  );
 };
 
 DateCardFlipper.displayName = 'DateCardFlipper';

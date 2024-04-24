@@ -22,5 +22,5 @@
     "jsx": "react-jsx",
     "typeRoots": ["./custom-types"],
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "custom-types/*.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "custom-types/*.d.ts", "src/components/CustomNode.jsx"],
 }

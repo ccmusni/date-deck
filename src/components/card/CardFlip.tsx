@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { FunctionComponent, useState } from 'react';
+import { CSSProperties, FunctionComponent, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardBody } from '@material-tailwind/react';
 
@@ -11,6 +11,7 @@ interface CardFLipProps {
   onFlip?: (id: string, isFlipped: boolean) => void;
   onFlipComplete?: (optionId: string) => void;
   disabled?: boolean;
+  customStyle: CSSProperties;
 }
 
 const CardFLip: FunctionComponent<CardFLipProps> = ({
@@ -20,6 +21,7 @@ const CardFLip: FunctionComponent<CardFLipProps> = ({
   onFlip = () => null,
   onFlipComplete = () => null,
   disabled = false,
+  customStyle = {},
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -35,8 +37,9 @@ const CardFLip: FunctionComponent<CardFLipProps> = ({
     <Card
       shadow={false}
       placeholder={''}
-      className={`flip-card h-[540px] w-full max-w-[350px] rounded-md m-10 ${disabled && !isFlipped ? 'opacity-50' : 'cursor-pointer'}`}
+      className={`flip-card h-[540px] w-[350px] max-w-[350px] rounded-md ${disabled && !isFlipped ? 'opacity-50' : 'cursor-pointer'}`}
       {...(!disabled ? { onClick: () => handleFlip(id, isFlipped) } : {})}
+      style={{ ...customStyle }}
     >
       <motion.div
         className="flip-card-inner w-[100%] h-[100%]"
@@ -52,7 +55,7 @@ const CardFLip: FunctionComponent<CardFLipProps> = ({
           children={<></>}
         />
         <CardBody
-          className={`absolute inset-0 m-0 rounded-none w-[100%] h-[100%] rounded-lg flip-card-front bg-${id ?? 'card-back'} bg-cover bg-center bg-opacity-25 p-4 border-[3px] border-red-400 flex justify-center items-center`}
+          className={`absolute inset-0 m-0 rounded-none w-[100%] h-[100%] rounded-lg flip-card-front bg-[url('/public/images/${id}.png')] bg-cover bg-center bg-opacity-25 p-4 border-[3px] border-red-400 flex justify-center items-center`}
         >
           {true && (
             <div className="bg-clip-content bg-white p-3 border-4 border-pink-300 border-dashed bg-opacity-75 drop-shadow-xl">

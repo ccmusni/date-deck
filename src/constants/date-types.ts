@@ -73,24 +73,64 @@ const dateTypes: IDateType[] = [
         label: 'SHOPPING DATE',
         options: [
           {
-            id: 'greenbelt',
-            label: 'Greenbelt',
+            id: 'online',
+            question:
+              "Select a card and click it. Your chosen card will reveal the Online Shop we'll be checking!",
+            label: 'Online Shopping',
+            options: [
+              {
+                id: 'shopee',
+                label: 'Shopee',
+              },
+              {
+                id: 'lazada',
+                label: 'Lazada',
+              },
+              {
+                id: 'shein',
+                label: 'SHEIN',
+              },
+            ],
           },
           {
-            id: 'market-market',
-            label: 'Market! Market!',
+            id: 'mall-shopping',
+            question:
+              "Select a card and click it. Your chosen card will reveal the Mall we'll be visiting!",
+            label: 'Mall Shopping',
+            options: [
+              {
+                id: 'your-mall-selection',
+                label: 'Your Selection',
+              },
+              {
+                id: 'vertis',
+                label: 'Vertis North',
+              },
+              {
+                id: 'podium',
+                label: 'The Podium',
+              },
+            ],
           },
           {
-            id: 'your-mall-selection',
-            label: 'Your Selection',
-          },
-          {
-            id: 'vertis',
-            label: 'Vertis North',
-          },
-          {
-            id: 'podium',
-            label: 'The Podium',
+            id: 'window-shopping',
+            question:
+              "Select a card and click it. Your chosen card will reveal the Mall we'll be seeing!",
+            label: 'Window Shopping',
+            options: [
+              {
+                id: 'greenbelt',
+                label: 'Greenbelt',
+              },
+              {
+                id: 'market-market',
+                label: 'Market! Market!',
+              },
+              {
+                id: 'glorietta',
+                label: 'Glorietta',
+              },
+            ],
           },
         ],
       },

@@ -48,6 +48,7 @@ const DateCardOptions: FunctionComponent<DateOptionsProps> = ({
             isFlipped={isFlipped}
             onFlip={handleFlip}
             disabled={disabled}
+            customStyle={{ margin: 20 }}
           />
         ))}
       </div>
