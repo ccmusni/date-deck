@@ -55,7 +55,8 @@ const CardFLip: FunctionComponent<CardFLipProps> = ({
           children={<></>}
         />
         <CardBody
-          className={`absolute inset-0 m-0 rounded-none w-[100%] h-[100%] rounded-lg flip-card-front bg-[url('/public/images/${id}.png')] bg-cover bg-center bg-opacity-25 p-4 border-[3px] border-red-400 flex justify-center items-center`}
+          style={{ backgroundImage: `url('/images/${id}.png')` }}
+          className={`absolute inset-0 m-0 rounded-none w-[100%] h-[100%] rounded-lg flip-card-front bg-cover bg-center bg-opacity-25 p-4 border-[3px] border-red-400 flex justify-center items-center`}
         >
           {true && (
             <div className="bg-clip-content bg-white p-3 border-4 border-pink-300 border-dashed bg-opacity-75 drop-shadow-xl">
