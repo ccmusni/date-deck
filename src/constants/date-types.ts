@@ -2,20 +2,19 @@ import { IDateType } from 'date-types';
 const dateTypes: IDateType[] = [
   {
     id: 'date-types',
-    question:
-      'Choose a card and click to reveal! The selected card will determine our exciting Date ahead...',
+    question: `Choose a card and click to reveal! \n The selected card will determine our exciting Date ahead...`,
     label: '',
     options: [
       {
         id: 'pamper-date',
         question:
-          'Choose a card and click to discover! The selected card will reveal the Pampering Date in store for us...',
+          'Choose a card and click to discover! \n The selected card will reveal the Pampering Date in store for us...',
         label: 'PAMPER DATE',
         options: [
           {
             id: 'spa',
             question:
-              "Select a card and click it. Your chosen card will reveal the Spa we'll be visiting!",
+              "Select a card and click it. \n Your chosen card will reveal the Spa we'll be visiting!",
             label: 'SPA',
             options: [
               {
@@ -35,7 +34,7 @@ const dateTypes: IDateType[] = [
           {
             id: 'salon',
             question:
-              "Select a card and click it. Your chosen card will reveal the Salon we'll be visiting!",
+              "Select a card and click it.\n  Your chosen card will reveal the Salon we'll be visiting!",
             label: 'SALON',
             options: [
               {
@@ -55,7 +54,7 @@ const dateTypes: IDateType[] = [
           {
             id: 'spa-salon',
             question:
-              "Select a card and click it. Your chosen card will reveal the Spa & Salon we'll be visiting!",
+              "Select a card and click it.\n  Your chosen card will reveal the Spa & Salon we'll be visiting!",
             label: 'Spa & Salon - Your Selection',
             options: [
               {
@@ -69,13 +68,13 @@ const dateTypes: IDateType[] = [
       {
         id: 'shopping-date',
         question:
-          'Choose a card and click to discover! The selected card will reveal the shopping date in store for us...',
+          'Choose a card and click to discover! \n The selected card will reveal the shopping date in store for us...',
         label: 'SHOPPING DATE',
         options: [
           {
             id: 'online',
             question:
-              "Select a card and click it. Your chosen card will reveal the Online Shop we'll be checking!",
+              "Select a card and click it.\n Your chosen card will reveal the Online Shop we'll be checking!",
             label: 'Online Shopping',
             options: [
               {
@@ -95,7 +94,7 @@ const dateTypes: IDateType[] = [
           {
             id: 'mall-shopping',
             question:
-              "Select a card and click it. Your chosen card will reveal the Mall we'll be visiting!",
+              "Select a card and click it.\n  Your chosen card will reveal the Mall we'll be visiting!",
             label: 'Mall Shopping',
             options: [
               {
@@ -115,7 +114,7 @@ const dateTypes: IDateType[] = [
           {
             id: 'window-shopping',
             question:
-              "Select a card and click it. Your chosen card will reveal the Mall we'll be seeing!",
+              "Select a card and click it.\n  Your chosen card will reveal the Mall we'll be seeing!",
             label: 'Window Shopping',
             options: [
               {
@@ -137,24 +136,48 @@ const dateTypes: IDateType[] = [
       {
         id: 'staycation-date',
         question:
-          'Choose a card and click to discover! The selected card will reveal the staycation date in store for us...',
+          'Choose a card and click to discover!\n The selected card will reveal the staycation date in store for us...',
         label: 'STAYCATION DATE',
         options: [
           {
-            id: 'purico-cabin',
-            label: 'Purico’s Cabin Resort ',
+            id: 'out-of-town',
+            question:
+              "Select a card and click it.\n Your chosen card will reveal the location we'll be going!",
+            label: 'Out of Town',
+            options: [
+              {
+                id: 'purico-cabin',
+                label: 'Purico’s Cabin Resort',
+              },
+              {
+                id: 'scenery',
+                label: 'Scenery Resort & Spa Antipolo/Tagaytay',
+              },
+              {
+                id: 'cielo-alto',
+                label: 'Cielo Alto',
+              },
+            ],
           },
           {
-            id: 'scenery',
-            label: 'Scenery Resort & Spa Antipolo/Tagaytay',
-          },
-          {
-            id: 'your-staycation-selection',
-            label: 'Your Selection',
-          },
-          {
-            id: 'cielo-alto',
-            label: 'Cielo Alto',
+            id: 'city',
+            question:
+              "Select a card and click it. \n Your chosen card will reveal the location we'll be going!",
+            label: 'Within the City',
+            options: [
+              {
+                id: 'hotel-101-manila',
+                label: 'Hotel 101 Manila',
+              },
+              {
+                id: 'city-garden',
+                label: 'City Garden Hotel, Makati',
+              },
+              {
+                id: 'discovery-primea',
+                label: 'Discovery Primea',
+              },
+            ],
           },
         ],
       },

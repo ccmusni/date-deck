@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { Fragment, FunctionComponent, useEffect, useState } from 'react';
 import CardFLip from '../components/card/CardFlip';
 import { IDateType } from 'date-types';
 
@@ -38,7 +38,17 @@ const DateCardOptions: FunctionComponent<DateOptionsProps> = ({
 
   return (
     <div className="flex flex-col w-full h-[100vh] items-center justify-center">
-      <h1>{dateType.question}</h1>
+      <h1 style={{ fontSize: 36 }}>
+        {dateType.question?.split(/\r\n|\n|\r/gm).map((line) => {
+          return (
+            <Fragment>
+              {line}
+              <br />
+            </Fragment>
+          );
+        })}
+      </h1>
+
       <div className="flex w-full items-center justify-center">
         {dateTypeFlip?.map(({ id, label, isFlipped, disabled }) => (
           <CardFLip

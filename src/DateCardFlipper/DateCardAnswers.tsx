@@ -9,6 +9,7 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 import dateTypes from '../constants/date-types';
 import CustomNode from '../components/CustomNode';
+import Product from './confetti.gif';
 
 const nodeTypes = {
   card: CustomNode,
@@ -35,39 +36,30 @@ const getLabelsByIds = (options, ids) => {
 function DateCardAnswers({ answerIds }) {
   const answerLabels = getLabelsByIds(dateTypes[0].options, answerIds);
   const initialNodes = [
-    {
-      id: '1',
+    ...answerLabels.map((answer, i) => ({
+      id: answerIds[i],
       data: {
-        id: answerIds[0],
-        label: answerLabels[0],
+        id: answerIds[i],
+        label: answer,
       },
-      position: { x: -450, y: -150 },
+      position: { x: 450 * (i + 1), y: 150 * (i + 1) },
       type: 'card',
-    },
-    {
-      id: '2',
-      data: {
-        id: answerIds[1],
-        label: answerLabels[1],
-      },
-      position: { x: 0, y: 0 },
-      type: 'card',
-    },
-    {
-      id: '3',
-      data: {
-        id: answerIds[2],
-        label: answerLabels[2],
-      },
-      position: { x: 450, y: 150 },
-      type: 'card',
-    },
+    })),
   ];
 
-  const initialEdges = [
-    { id: '1-2', source: '1', target: '2', type: 'step' },
-    { id: '2-3', source: '2', target: '3', type: 'step' },
-  ];
+  let initialEdges = [];
+
+  for (let i = 0; i < initialNodes.length - 1; i++) {
+    initialEdges = [
+      ...initialEdges,
+      {
+        id: `${initialNodes[i].id}->${initialNodes[i + 1].id}`,
+        source: initialNodes[i].id,
+        target: initialNodes[i + 1].id,
+        type: 'step',
+      },
+    ];
+  }
 
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
@@ -91,6 +83,16 @@ function DateCardAnswers({ answerIds }) {
       fitView
     >
       <Controls />
+
+      <div style={{ display: 'flex', height: '100%', width: '100%' }}>
+        <img
+          src={Product}
+          width="100"
+          height="50"
+          alt="Confetti"
+          style={{ maxWidth: '100%', height: 'auto', width: 'auto' }}
+        />
+      </div>
     </ReactFlow>
   );
 }
