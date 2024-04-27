@@ -146,16 +146,16 @@ const dateTypes: IDateType[] = [
             label: 'Out of Town',
             options: [
               {
-                id: 'purico-cabin',
-                label: 'Purico’s Cabin Resort',
+                id: 'cabins-resort',
+                label: 'The Cabin Resort',
               },
               {
-                id: 'scenery',
-                label: 'Scenery Resort & Spa Antipolo/Tagaytay',
+                id: 'luljetta-resort',
+                label: `Luljetta's Hanging Gardens Spa`,
               },
               {
-                id: 'cielo-alto',
-                label: 'Cielo Alto',
+                id: 'reca-resort',
+                label: 'Reca Resort & Spa',
               },
             ],
           },
